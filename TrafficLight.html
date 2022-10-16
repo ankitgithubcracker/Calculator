@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript  </title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            height: 200px;
+            width: 100px;
+            border: 1px solid black;
+            margin: auto;
+            margin-top: 120px;
+            display: table;
+        }
+        .light{
+            height: 80px;
+            width: 80px;
+            background: black;
+            border-radius: 50%;
+            margin: 20px;
+            color:rgb(75, 187, 190);
+            text-align: center;
+            line-height: 80px;
+            font-size: 2.5rem;
+
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+</body>
+<script >
+    let i=0;
+    let timer=1;
+    cArray =["red","yellow","green"]
+    var light = document.getElementsByClassName("light");
+    
+    
+    function trafficLight(){
+        for( let j=0;j<light.length;j++){
+            light[j].style.background = "black"
+            light[j].innerHTML = "";
+        }
+        light[i].style.background = cArray[i];
+        
+
+        if(i<light.length){
+            if(timer<=10){
+                light[i].innerHTML = timer;
+                timer++;
+            }
+            if(timer==11){
+                i++
+                timer=1;
+
+            }
+            
+        } 
+        if(i==3){
+            i=0;
+        }
+
+        
+
+
+    }
+
+
+    setInterval(trafficLight, 1000);
+</script>
+</html>
